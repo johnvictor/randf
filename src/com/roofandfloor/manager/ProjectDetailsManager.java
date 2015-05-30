@@ -1,13 +1,33 @@
 package com.roofandfloor.manager;
 
-import java.util.List;
-
-import com.roofandfloor.model.ProjectList;
+import com.roofandfloor.ProjectDetailsActivity;
+import com.roofandfloor.model.ProjectDetail;
 
 public class ProjectDetailsManager {
-	
-	public interface ProjectDetailsListener{
-		public void setProjectDetails(List<ProjectList> projectList);
+
+	private ProjectDetailsActivity projectDetailsActivity;
+
+	public ProjectDetailsActivity getProjectDetailsActivity() {
+		return projectDetailsActivity;
+	}
+
+	public void populateProjectDetails(String response) {
+		ProjectDetail projectDetail;
+		
+		if (projectDetailsActivity != null) {
+			projectDetail = new ProjectDetail();
+			projectDetailsActivity.setProjectDetails(projectDetail.getProjectDetail(response));
+		}
+
+	}
+
+	public void setProjectDetailsActivity(
+			ProjectDetailsActivity projectDetailsActivity) {
+		this.projectDetailsActivity = projectDetailsActivity;
+	}
+
+	public interface ProjectDetailsListener {
+		public void setProjectDetails(ProjectDetail projectDetail);
 	}
 
 }

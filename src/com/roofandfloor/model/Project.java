@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ProjectList {
+public class Project {
 
 	private String id;
 	private String projectName;
@@ -46,15 +46,15 @@ public class ProjectList {
 		this.lon = lon;
 	}
 
-	public List<ProjectList> getProjectList(String response) {
-		List<ProjectList> projectList = new ArrayList<ProjectList>();
+	public List<Project> getProjectList(String response) {
+		List<Project> projectList = new ArrayList<Project>();
 
 		try {
 			JSONArray jsonArray = new JSONArray(response);
 			for (int n = 0; n < jsonArray.length(); n++) {
 				JSONObject object = jsonArray.getJSONObject(n);
 
-				ProjectList proj = new ProjectList();
+				Project proj = new Project();
 				proj.setId(object.getString("id"));
 				proj.setProjectName(object.getString("projectName"));
 				proj.setLat(object.getDouble("lat"));

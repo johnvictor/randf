@@ -3,7 +3,7 @@ package com.roofandfloor.manager;
 import java.util.List;
 
 import com.roofandfloor.MyListViewFragment;
-import com.roofandfloor.model.ProjectList;
+import com.roofandfloor.model.Project;
 
 public class ProjectListManager {
 	MyListViewFragment myListViewFragment;
@@ -17,13 +17,13 @@ public class ProjectListManager {
 	}
 
 	public interface ProjectListListener {
-		public void setProjectList(List<ProjectList> projectList);
+		public void setProjectList(List<Project> projectList);
 	}
 
 	public void populateProjectList(String response) {
-		ProjectList projectList = null;
+		Project projectList = null;
 		if (response != null) {
-			projectList = new ProjectList();
+			projectList = new Project();
 		}
 
 		if (myListViewFragment != null) {
