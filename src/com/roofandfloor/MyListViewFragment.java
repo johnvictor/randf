@@ -37,7 +37,7 @@ public class MyListViewFragment extends Fragment implements
 		lv.setOnItemClickListener(this);
 
 		ProjectListManager projectListManager = new ProjectListManager();
-		projectListManager.setMyListViewFragment(this);
+		projectListManager.setProjectListListener(this);
 		if (!NetworkConnection.isNetworkConnected(getActivity())) {
 			return null;
 		}

@@ -6,14 +6,14 @@ import com.roofandfloor.MyListViewFragment;
 import com.roofandfloor.model.Project;
 
 public class ProjectListManager {
-	MyListViewFragment myListViewFragment;
+	private ProjectListListener projectListListener;
 
-	public MyListViewFragment getMyListViewFragment() {
-		return myListViewFragment;
+	public ProjectListListener getProjectListListener() {
+		return projectListListener;
 	}
 
-	public void setMyListViewFragment(MyListViewFragment myListViewFragment) {
-		this.myListViewFragment = myListViewFragment;
+	public void setProjectListListener(ProjectListListener projectListListener) {
+		this.projectListListener = projectListListener;
 	}
 
 	public interface ProjectListListener {
@@ -26,8 +26,8 @@ public class ProjectListManager {
 			projectList = new Project();
 		}
 
-		if (myListViewFragment != null) {
-			myListViewFragment.setProjectList(projectList
+		if (projectListListener != null) {
+			projectListListener.setProjectList(projectList
 					.getProjectList(response));
 		}
 
