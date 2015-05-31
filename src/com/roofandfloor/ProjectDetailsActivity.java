@@ -1,10 +1,13 @@
 package com.roofandfloor;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,8 +46,7 @@ public class ProjectDetailsActivity extends Activity implements
 		ProjectDetailsManager projectDetailsManager = new ProjectDetailsManager();
 		projectDetailsManager.setProjectDetailsActivity(this);
 
-		if (!NetworkConnection.isNetworkConnected(this)
-				|| !NetworkConnection.isInternetAvailable(this)) {
+		if (!NetworkConnection.isNetworkConnected(this)) {
 			finish();
 		}
 		new ProjectDetailsServiceInvoker(projectDetailsManager, project)
@@ -72,8 +74,10 @@ public class ProjectDetailsActivity extends Activity implements
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
-		return super.onCreateOptionsMenu(menu);
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == android.R.id.home) {
+			finish();
+		}
+		return false;
 	}
 }

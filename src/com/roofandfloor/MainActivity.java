@@ -10,13 +10,14 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
-	private String _fragmentTag = "dynamicFragment";
+	public static final String _fragmentTag = "dynamicFragment";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+		
 		MyListViewFragment theFragment = new MyListViewFragment();
 		FragmentManager fm = getFragmentManager();
 

@@ -59,8 +59,7 @@ public class CustomListAdapter extends BaseAdapter {
 		holder.img = (ImageView) rowView.findViewById(R.id.iv);
 		holder.tv.setText(projectDocument.get(position).getText());
 
-		if (NetworkConnection.isNetworkConnected(context)
-				|| NetworkConnection.isInternetAvailable(context)) {
+		if (NetworkConnection.isNetworkConnected(context)) {
 			new DownloadImageTask(holder.img).execute(projectDocument.get(
 					position).getReference());
 		}

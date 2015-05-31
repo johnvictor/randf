@@ -38,9 +38,8 @@ public class MyListViewFragment extends Fragment implements
 
 		ProjectListManager projectListManager = new ProjectListManager();
 		projectListManager.setMyListViewFragment(this);
-		if (!NetworkConnection.isNetworkConnected(getActivity())
-				|| !NetworkConnection.isInternetAvailable(getActivity())) {
-			getActivity().finish();
+		if (!NetworkConnection.isNetworkConnected(getActivity())) {
+			return null;
 		}
 		new ServiceInvoker(projectListManager).execute();
 		Log.d("------------------> ", "Service invoked");
